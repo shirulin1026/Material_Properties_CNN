@@ -2,11 +2,16 @@ import sys
 import os.path
 from PIL import Image
 
+# obtained from folder average
 reshape_size = (700, 450)
+
+# original images
 orgfolder = "DEEPstruc"
+
+# destination folder for resized images
 subfolder = "DEEPstruc_Normalized/"
 
-# Loop through all provided arguments
+# for image in original folder:
 for path in os.listdir(orgfolder):
     try:
         image = Image.open(orgfolder + "/" + path)
@@ -21,5 +26,5 @@ for path in os.listdir(orgfolder):
     # Split our original filename into name and extension
     (name, extension) = os.path.splitext(path)
     
-    # Save the thumbnail as "(original_name)_thumb.png"
+    # Save the resized image as "(original_name)_normal.png"
     image.save(subfolder + name + '_normal.png')
