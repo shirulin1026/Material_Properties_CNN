@@ -53,7 +53,8 @@ model.compile(
 
 model.fit(X_img, mag_data, validation_split=0.2, epochs=10, callbacks=[keras.callbacks.EarlyStopping()])
 
+model_json = model.to_json()
+with open("simple_model_1.json", "w") as json_file:
+    json_file.write(model_json)
 
-
-
-
+model.save_weights("simple_model_1_weights.h5")
